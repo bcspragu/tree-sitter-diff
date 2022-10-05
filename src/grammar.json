@@ -1,5 +1,5 @@
 {
-  "name": "diff",
+  "name": "prr",
   "rules": {
     "source": {
       "type": "SEQ",
@@ -98,7 +98,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "STRING",
-            "value": "diff"
+            "value": "> diff"
           }
         },
         {
@@ -124,15 +124,15 @@
               "members": [
                 {
                   "type": "STRING",
-                  "value": "new"
+                  "value": "> new"
                 },
                 {
                   "type": "STRING",
-                  "value": "deleted"
+                  "value": "> deleted"
                 },
                 {
                   "type": "STRING",
-                  "value": "rename"
+                  "value": "> rename"
                 }
               ]
             }
@@ -191,7 +191,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "STRING",
-            "value": "Binary"
+            "value": "> Binary"
           }
         },
         {
@@ -223,7 +223,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "STRING",
-            "value": "index"
+            "value": "> index"
           }
         },
         {
@@ -259,7 +259,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "STRING",
-            "value": "similarity"
+            "value": "> similarity"
           }
         },
         {
@@ -287,7 +287,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "STRING",
-            "value": "---"
+            "value": "> ---"
           }
         },
         {
@@ -303,7 +303,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "STRING",
-            "value": "+++"
+            "value": "> +++"
           }
         },
         {
@@ -319,7 +319,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "STRING",
-            "value": "@@"
+            "value": "> @@"
           }
         },
         {
@@ -355,7 +355,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "STRING",
-            "value": "+"
+            "value": "> +"
           }
         },
         {
@@ -382,7 +382,7 @@
               "type": "IMMEDIATE_TOKEN",
               "content": {
                 "type": "STRING",
-                "value": "-"
+                "value": "> -"
               }
             },
             {
@@ -406,7 +406,7 @@
               "type": "IMMEDIATE_TOKEN",
               "content": {
                 "type": "STRING",
-                "value": "--"
+                "value": "> --"
               }
             },
             {
@@ -430,7 +430,7 @@
               "type": "IMMEDIATE_TOKEN",
               "content": {
                 "type": "STRING",
-                "value": "---"
+                "value": "> ---"
               }
             }
           ]
@@ -442,7 +442,7 @@
               "type": "IMMEDIATE_TOKEN",
               "content": {
                 "type": "STRING",
-                "value": "----"
+                "value": "> ----"
               }
             },
             {
@@ -462,15 +462,27 @@
       ]
     },
     "context": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": -1,
-        "content": {
-          "type": "PATTERN",
-          "value": "[^\\r\\n]+"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "> "
+          }
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": -1,
+            "content": {
+              "type": "PATTERN",
+              "value": "[^\\r\\n]+"
+            }
+          }
         }
-      }
+      ]
     },
     "linerange": {
       "type": "PATTERN",

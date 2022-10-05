@@ -35,6 +35,11 @@
     }
   },
   {
+    "type": "context",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "deletion",
     "named": true,
     "fields": {}
@@ -197,30 +202,6 @@
     "named": false
   },
   {
-    "type": "+",
-    "named": false
-  },
-  {
-    "type": "+++",
-    "named": false
-  },
-  {
-    "type": "-",
-    "named": false
-  },
-  {
-    "type": "--",
-    "named": false
-  },
-  {
-    "type": "---",
-    "named": false
-  },
-  {
-    "type": "----",
-    "named": false
-  },
-  {
     "type": "--git",
     "named": false
   },
@@ -229,11 +210,55 @@
     "named": false
   },
   {
-    "type": "@@",
+    "type": "> ",
     "named": false
   },
   {
-    "type": "Binary",
+    "type": "> +",
+    "named": false
+  },
+  {
+    "type": "> +++",
+    "named": false
+  },
+  {
+    "type": "> -",
+    "named": false
+  },
+  {
+    "type": "> --",
+    "named": false
+  },
+  {
+    "type": "> ---",
+    "named": false
+  },
+  {
+    "type": "> ----",
+    "named": false
+  },
+  {
+    "type": "> @@",
+    "named": false
+  },
+  {
+    "type": "> Binary",
+    "named": false
+  },
+  {
+    "type": "> diff",
+    "named": false
+  },
+  {
+    "type": "> index",
+    "named": false
+  },
+  {
+    "type": "> similarity",
+    "named": false
+  },
+  {
+    "type": "@@",
     "named": false
   },
   {
@@ -243,14 +268,6 @@
   {
     "type": "commit",
     "named": true
-  },
-  {
-    "type": "context",
-    "named": true
-  },
-  {
-    "type": "diff",
-    "named": false
   },
   {
     "type": "differ",
@@ -278,10 +295,6 @@
   },
   {
     "type": "mode",
-    "named": false
-  },
-  {
-    "type": "similarity",
     "named": false
   },
   {

@@ -3,7 +3,7 @@ const WHITE_SPACE = /[\t\f\v ]+/;
 const ANYTHING = /[^\r\n]+/;
 
 module.exports = grammar({
-  name: "diff",
+  name: "prr",
 
   extras: ($) => [WHITE_SPACE],
 
@@ -27,11 +27,11 @@ module.exports = grammar({
       ),
 
     // FIXME: remove git assumption
-    command: ($) => iseq("diff", "--git", $.filename),
+    command: ($) => iseq("> diff", "--git", $.filename),
 
     file_change: ($) =>
       iseq(
-        field("kind", choice("new", "deleted", "rename")),
+        field("kind", choice("> new", "> deleted", "> rename")),
         choice(
           seq("file", "mode", $.mode),
           seq(choice("from", "to"), $.filename)
@@ -39,28 +39,28 @@ module.exports = grammar({
       ),
 
     binary_change: ($) =>
-      iseq("Binary", "files", $.filename, "and", $.filename, "differ"),
+      iseq("> Binary", "files", $.filename, "and", $.filename, "differ"),
 
-    index: ($) => iseq("index", $.commit, "..", $.commit, optional($.mode)),
+    index: ($) => iseq("> index", $.commit, "..", $.commit, optional($.mode)),
 
-    similarity: ($) => iseq("similarity", "index", field("score", /\d+/), "%"),
+    similarity: ($) => iseq("> similarity", "index", field("score", /\d+/), "%"),
 
-    old_file: ($) => iseq("---", $.filename),
-    new_file: ($) => iseq("+++", $.filename),
+    old_file: ($) => iseq("> ---", $.filename),
+    new_file: ($) => iseq("> +++", $.filename),
 
     location: ($) =>
-      iseq("@@", $.linerange, $.linerange, "@@", optional(ANYTHING)),
+      iseq("> @@", $.linerange, $.linerange, "@@", optional(ANYTHING)),
 
-    addition: ($) => iseq("+", optional(ANYTHING)),
+    addition: ($) => iseq("> +", optional(ANYTHING)),
     deletion: ($) =>
       choice(
-        iseq("-", optional(ANYTHING)),
-        iseq("--", optional(ANYTHING)),
-        iseq("---"),
-        iseq("----", optional(ANYTHING))
+        iseq("> -", optional(ANYTHING)),
+        iseq("> --", optional(ANYTHING)),
+        iseq("> ---"),
+        iseq("> ----", optional(ANYTHING))
       ),
 
-    context: ($) => token(prec(-1, ANYTHING)),
+    context: ($) => iseq("> ", token(prec(-1, ANYTHING))),
 
     linerange: ($) => /[-\+]\d+(,\d+)?/,
     filename: ($) => repeat1(/\S+/),
