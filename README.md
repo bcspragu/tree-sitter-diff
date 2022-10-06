@@ -1,4 +1,4 @@
-# `tree-sitter-diff` (but really `tree-sitter-prr`)
+# `tree-sitter-prr`
 
 [![CI][ci-badge]][ci-workflow]
 
