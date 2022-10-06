@@ -2,14 +2,14 @@
 
 [![CI][ci-badge]][ci-workflow]
 
-This is a fork of [the-mikedavis/tree-sitter-diff](https://github.com/the-
-mikedavis/tree-sitter-diff) that basically just adds a `>` in front of every
-line.
+This is a fork of
+[the-mikedavis/tree-sitter-diff](https://github.com/the-mikedavis/tree-sitter-diff)
+that basically just adds a `>` in front of every line.
 
 I did this because I wanted to try out the
 [mailing-list-style-code-review-tool-for-GitHub, `prr`](https://github.com/danobi/prr),
 but wanted to have syntax highlighting in
-[Helix](https://github.com/helix-editor/helix)
+[Helix](https://github.com/helix-editor/helix).
 
 ## Usage in Helix
 
@@ -41,8 +41,8 @@ with `prr get helix-editor/helix/4079`:
 
 <img src="assets/diff.png" width="500"/>
 
-[ci-badge]: https://github.com/bcspragu/tree-sitter-diff/actions/workflows/ci.yml/badge.svg
-[ci-workflow]: https://github.com/bcspragu/tree-sitter-diff/actions/workflows/ci.yml
+[ci-badge]: https://github.com/bcspragu/tree-sitter-prr/actions/workflows/ci.yml/badge.svg
+[ci-workflow]: https://github.com/bcspragu/tree-sitter-rdiffactions/workflows/ci.yml
 [tree-sitter]: https://tree-sitter.github.io/tree-sitter/
 [tree-sitter-diff (actual)]: https://github.com/the-mikedavis/tree-sitter-diff
 [tree-sitter-git-commit]: https://github.com/the-mikedavis/tree-sitter-git-commit
