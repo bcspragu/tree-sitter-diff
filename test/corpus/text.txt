@@ -19,28 +19,32 @@ Single-file small change
 --------------------------------------------------------------------------------
 
 (source
-  (command
-    (filename))
-  (index
-    (commit)
-    (commit)
-    (mode))
-  (old_file
-    (filename))
-  (new_file
-    (filename))
-  (location
-    (linerange)
-    (linerange))
-  (context)
-  (context)
-  (context)
-  (deletion)
-  (addition)
-  (addition)
-  (addition)
-  (context)
-  (context))
+  (block
+    (command
+      (filename))
+    (index
+      (commit)
+      (commit)
+      (mode))
+    (old_file
+      (filename))
+    (new_file
+      (filename))
+    (hunks
+      (hunk
+        (location
+          (linerange)
+          (linerange))
+        (changes
+          (context)
+          (context)
+          (context)
+          (deletion)
+          (addition)
+          (addition)
+          (addition)
+          (context)
+          (context))))))
 
 ================================================================================
 New empty file
@@ -52,13 +56,14 @@ New empty file
 --------------------------------------------------------------------------------
 
 (source
-  (command
-    (filename))
-  (file_change
-    (mode))
-  (index
-    (commit)
-    (commit)))
+  (block
+    (command
+      (filename))
+    (file_change
+      (mode))
+    (index
+      (commit)
+      (commit))))
 
 ================================================================================
 Deleted empty file
@@ -70,13 +75,14 @@ Deleted empty file
 --------------------------------------------------------------------------------
 
 (source
-  (command
-    (filename))
-  (file_change
-    (mode))
-  (index
-    (commit)
-    (commit)))
+  (block
+    (command
+      (filename))
+    (file_change
+      (mode))
+    (index
+      (commit)
+      (commit))))
 
 ================================================================================
 File rename
@@ -89,13 +95,14 @@ File rename
 --------------------------------------------------------------------------------
 
 (source
-  (command
-    (filename))
-  (similarity)
-  (file_change
-    (filename))
-  (file_change
-    (filename)))
+  (block
+    (command
+      (filename))
+    (similarity)
+    (file_change
+      (filename))
+    (file_change
+      (filename))))
 
 ================================================================================
 Location with no context
@@ -124,22 +131,26 @@ No newline at end of file
 --------------------------------------------------------------------------------
 
 (source
-  (command
-    (filename))
-  (file_change
-    (mode))
-  (index
-    (commit)
-    (commit))
-  (old_file
-    (filename))
-  (new_file
-    (filename))
-  (location
-    (linerange)
-    (linerange))
-  (addition)
-  (context))
+  (block
+    (command
+      (filename))
+    (file_change
+      (mode))
+    (index
+      (commit)
+      (commit))
+    (old_file
+      (filename))
+    (new_file
+      (filename))
+    (hunks
+      (hunk
+        (location
+          (linerange)
+          (linerange))
+        (changes
+          (addition)
+          (context))))))
 
 ================================================================================
 Just a file declaration and no newline
@@ -185,49 +196,57 @@ location tokens in diff
 --------------------------------------------------------------------------------
 
 (source
-  (command
-    (filename))
-  (index
-    (commit)
-    (commit)
-    (mode))
-  (old_file
-    (filename))
-  (new_file
-    (filename))
-  (location
-    (linerange)
-    (linerange))
-  (context)
-  (context)
-  (context)
-  (deletion)
-  (addition)
-  (addition)
-  (context)
-  (context)
-  (context)
-  (command
-    (filename))
-  (index
-    (commit)
-    (commit)
-    (mode))
-  (old_file
-    (filename))
-  (new_file
-    (filename))
-  (location
-    (linerange)
-    (linerange))
-  (context)
-  (context)
-  (addition)
-  (addition)
-  (addition)
-  (addition)
-  (addition)
-  (addition))
+  (block
+    (command
+      (filename))
+    (index
+      (commit)
+      (commit)
+      (mode))
+    (old_file
+      (filename))
+    (new_file
+      (filename))
+    (hunks
+      (hunk
+        (location
+          (linerange)
+          (linerange))
+        (changes
+          (context)
+          (context)
+          (context)
+          (deletion)
+          (addition)
+          (addition)
+          (context)
+          (context)
+          (context)))))
+  (block
+    (command
+      (filename))
+    (index
+      (commit)
+      (commit)
+      (mode))
+    (old_file
+      (filename))
+    (new_file
+      (filename))
+    (hunks
+      (hunk
+        (location
+          (linerange)
+          (linerange))
+        (changes
+          (context)
+          (context)
+          (addition)
+          (addition)
+          (addition)
+          (addition)
+          (addition)
+          (addition))))))
 
 ================================================================================
 Leading dash deletions
@@ -244,3 +263,19 @@ Leading dash deletions
   (deletion)
   (deletion)
   (deletion))
+
+================================================================================
+Leading plus additions
+================================================================================
+> ++123
+> ++
+> ++++1234
+> +++++1234
+
+--------------------------------------------------------------------------------
+
+(source
+  (addition)
+  (addition)
+  (addition)
+  (addition))

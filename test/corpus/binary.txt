@@ -8,15 +8,16 @@ Single-file small change
 --------------------------------------------------------------------------------
 
 (source
-  (command
-    (filename))
-  (index
-    (commit)
-    (commit)
-    (mode))
-  (binary_change
-    (filename)
-    (filename)))
+  (block
+    (command
+      (filename))
+    (index
+      (commit)
+      (commit)
+      (mode))
+    (binary_change
+      (filename)
+      (filename))))
 
 ================================================================================
 Deleted binary file
@@ -29,13 +30,14 @@ Deleted binary file
 --------------------------------------------------------------------------------
 
 (source
-  (command
-    (filename))
-  (file_change
-    (mode))
-  (index
-    (commit)
-    (commit))
-  (binary_change
-    (filename)
-    (filename)))
+  (block
+    (command
+      (filename))
+    (file_change
+      (mode))
+    (index
+      (commit)
+      (commit))
+    (binary_change
+      (filename)
+      (filename))))
